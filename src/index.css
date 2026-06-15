@@ -95,23 +95,38 @@ body {
 	transition: background-color 0.3s ease;
 	white-space: nowrap;
 }
-.estrella {
-	margin-left: 0.5rem;
-	background-color: white;
-}
 
 .btn-favoritos {
 	height: 3.6rem;
 	padding: 0.8rem 1.5rem;
 	background-color: whitesmoke;
 	color: var(--color-dark);
-	border: none;
+	border: 1px solid #ddd;
 	border-radius: 0.5rem;
 	font-size: 1.4rem;
 	cursor: pointer;
-	transition: background-color 0.3s ease;
+	transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 	white-space: nowrap;
 	margin-top: 0 !important;
+}
+
+.btn-favoritos:hover {
+	background-color: var(--color-secondary);
+	color: var(--color-light);
+	border-color: var(--color-secondary);
+}
+
+.btn-favoritos .favorite-icon-wrapper {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	margin-left: 0.8rem;
+	width: 24px;
+	height: 24px;
+	background-color: var(--color-secondary); /* Azul oscuro */
+	color: white;
+	border-radius: 50%;
+	font-size: 1.4rem; /* 14px */
 }
 
 .btn-favoritos.active {
@@ -171,6 +186,22 @@ body {
 
 .favorite-star.is-favorite {
 	color: var(--color-accent);
+}
+
+/* Animación para cuando se marca un favorito */
+@keyframes favorite-pop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.4) rotate(-10deg);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.favorite-star.animate-pop {
+  animation: favorite-pop 0.4s ease-in-out;
 }
 .estado {
 	background: var(--color-secondary);
