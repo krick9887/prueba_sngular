@@ -40,7 +40,7 @@ function App() {
     <div className="container">
       <Header />
       {showFavorites ? (
-        <>
+        <div key="favorites-view">
           <div className="view-header">
             <h2>Mis Favoritos</h2>
             <button className="btn volver" onClick={() => setShowFavorites(false)}>
@@ -65,9 +65,9 @@ function App() {
               <p>Aún no has añadido favoritos.</p>
             )}
           </section>
-        </>
+        </div>
       ) : (
-        <>
+        <div key="main-view">
           <div className="main-controls d-flex justify-content-between align-items-center">
             <Filtrar filter={filter} setFilter={setFilter} />
             <button
@@ -103,7 +103,7 @@ function App() {
               onPageChange={handlePageChange}
             />
           )}
-        </>
+        </div>
       )}
 
       {isModalOpen && selectedPersonaje && (
